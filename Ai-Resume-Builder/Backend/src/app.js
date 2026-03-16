@@ -20,11 +20,13 @@ app.use(cookieParser());
    // origin: [process.env.ALLOWED_SITE],
     //credentials: true
 //};
-const corsOptions = {
-    origin: "*",  // Allows requests from any origin
-    credentials: false  // Must be false when using "*" for security reasons
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://rushikesh-mulik.vercel.app",
+    credentials: true
+  })
+);
+//app.use(cors(corsOptions));
 
 app.use("/api/users", userRouter);
 app.use("/api/resumes", resumeRouter);
