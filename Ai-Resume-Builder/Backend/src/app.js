@@ -16,11 +16,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
+//const corsOptions = {
+   // origin: [process.env.ALLOWED_SITE],
+    //credentials: true
+//};
 const corsOptions = {
-    origin: [process.env.ALLOWED_SITE],
-    credentials: true
+    origin: "*",  // Allows requests from any origin
+    credentials: false  // Must be false when using "*" for security reasons
 };
-
 app.use(cors(corsOptions));
 
 app.use("/api/users", userRouter);
